@@ -360,24 +360,24 @@ export default function Game2048() {
             row.map((val, cIdx) => (
               <div
                 key={`${rIdx}-${cIdx}`}
-                className={`w-full h-full flex items-center justify-center rounded-xl font-bold transition-all duration-75 shadow-inner ${
-                  val === 0 ? 'bg-stone-700/50' : 'relative overflow-hidden border-2 border-pink-300 shadow-md'
+                className={`w-full h-full flex items-center justify-center rounded-xl font-bold transition-all duration-75 shadow-inner relative overflow-hidden ${
+                  val === 0 ? 'bg-stone-700/50' : 'border-2 border-pink-300 shadow-md'
                 }`}
-                style={
-                  val !== 0
-                    ? {
-                        // Sửa đường dẫn từ img-${val}.jpg thành ${val}.jpg để khớp với tên file thực tế trong public/images/
-                        backgroundImage: `url('/images/img-${val}.jpg')`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                      }
-                    : {}
-                }
               >
                 {val !== 0 && (
-                  <span className="absolute bottom-1 right-1.5 bg-black/75 text-white px-1.5 py-0.5 rounded-md text-[10px] sm:text-xs font-black tracking-wider shadow">
-                    {val}
-                  </span>
+                  <>
+                    <img
+                      src={`/images/img-${val}.jpg`}
+                      alt={`Tile ${val}`}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
+                    <span className="absolute bottom-1 right-1.5 bg-black/75 text-white px-1.5 py-0.5 rounded-md text-[10px] sm:text-xs font-black tracking-wider shadow z-10">
+                      {val}
+                    </span>
+                  </>
                 )}
               </div>
             ))
