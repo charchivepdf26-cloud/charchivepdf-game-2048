@@ -2,7 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: 'export',
-  // partialPrefetching: false, // Tắt hoặc xóa dòng này đi vì xung đột với export mode
+  images: {
+    unoptimized: true, // Cực kỳ quan trọng khi xuất static để giữ nguyên đường dẫn ảnh /images/...
+  },
   turbopack: {
     rules: {
       "*.css": {

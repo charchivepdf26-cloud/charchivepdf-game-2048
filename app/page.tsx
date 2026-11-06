@@ -366,7 +366,8 @@ export default function Game2048() {
                 style={
                   val !== 0
                     ? {
-                        backgroundImage: `url('/images/img-${val}.jpg')`,
+                        // Sửa đường dẫn từ img-${val}.jpg thành ${val}.jpg để khớp với tên file thực tế trong public/images/
+                        backgroundImage: `url('/images/${val}.jpg')`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                       }
