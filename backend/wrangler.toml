@@ -1,0 +1,12 @@
+name = "backend-2048"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "game-2048-db"
+database_id = "c90d400d-b54b-497c-b0f0-ac0c2456a67d"
+
+[[kv_namespaces]]
+binding = "GAME_KV"
+id = "e9ed4f8c8fae437c91754165e6de5cfa"
